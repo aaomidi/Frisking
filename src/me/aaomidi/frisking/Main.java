@@ -44,17 +44,17 @@ public class Main extends JavaPlugin {
             if (commandLabel.equalsIgnoreCase("check")) {
                 if (player.hasPermission("frisking.check") || player.isOp()) {
                     if (!(drug.containsKey(player))) {
-                        player.sendMessage(ChatColor.AQUA + "Drug checker activated!");
+                        player.sendMessage(String.format("%1$sDrug checker activated!", ChatColor.AQUA));
                         drug.put(player, null);
                         player.setItemInHand(wand);
                     } else {
                         drug.remove(player);
-                        player.sendMessage(ChatColor.RED + "Drug checker deactivated!");
+                        player.sendMessage(String.format("Drug checker deactivated!", ChatColor.RED));
                         player.getInventory().remove(Material.STICK);
                     }
+                } else {
+                    player.sendMessage(String.format("You do not have the required permissions!", ChatColor.DARK_RED));
                 }
-            } else {
-                player.sendMessage(ChatColor.DARK_RED + "You do not have the required permissions!");
             }
         }
         return false;
