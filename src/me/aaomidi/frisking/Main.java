@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package me.aaomidi.frisking;
 
 import java.util.HashMap;
@@ -18,10 +14,6 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-/**
- *
- * @author AAO
- */
 public class Main extends JavaPlugin {
 
     public static final Logger log = Bukkit.getLogger();
@@ -32,16 +24,12 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-
-
         PluginDescriptionFile pdfFile = getDescription();
         getServer().getConsoleSender().sendMessage(String.format("%1$s[%2$s] **%2$s version %3$s has been disabled.**", ChatColor.RED, pdfFile.getName(), pdfFile.getVersion()));
     }
 
     @Override
     public void onEnable() {
-
-
         PluginDescriptionFile pdfFile = getDescription();
         getServer().getConsoleSender().sendMessage(String.format("%1$s[%2$s] **%2$s version %3$s has been enabled.**", ChatColor.GREEN, pdfFile.getName(), pdfFile.getVersion()));
         PluginManager pm = getServer().getPluginManager();
@@ -59,20 +47,16 @@ public class Main extends JavaPlugin {
                         player.sendMessage(ChatColor.AQUA + "Drug checker activated!");
                         drug.put(player, null);
                         player.setItemInHand(wand);
-
                     } else {
                         drug.remove(player);
                         player.sendMessage(ChatColor.RED + "Drug checker deactivated!");
-                            player.getInventory().remove(Material.STICK);
-                        }
+                        player.getInventory().remove(Material.STICK);
                     }
-
-                }else{
-                player.sendMessage(ChatColor.DARK_RED+"You do not have the required permissions!");
+                }
+            } else {
+                player.sendMessage(ChatColor.DARK_RED + "You do not have the required permissions!");
             }
-
         }
         return false;
     }
 }
-

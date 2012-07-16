@@ -9,4 +9,4 @@ description: >
 commands:
   check:
     description: Enables the explosive spell!
-    permissions: friking.check
+    permissions: frisking.check
