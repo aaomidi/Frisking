@@ -19,7 +19,8 @@ class PlayerInteract implements Listener {
     @EventHandler
     public void EntityDamgeByEntityEvent(EntityDamageByEntityEvent e) {
 
-        Player player = (Player) e.getDamager();
+        if (e.getDamager() instanceof Player){
+            Player player=(Player) e.getDamager();
         if (Main.drug.containsKey(player)) {
             if (player.getItemInHand().getType() == Material.STICK) {
                 Player target = (Player) e.getEntity();
@@ -63,5 +64,6 @@ class PlayerInteract implements Listener {
                 }
             }
         }
+    }
     }
 }
